@@ -25,14 +25,20 @@ document.querySelector('.check').addEventListener
     const guess = Number(document.querySelector('.guess').value);
      console.log(guess);
 
+     //When there is no input
      if(!guess){
         document.querySelector('.message').textContent = "No Number!"
+
+        //When player wins
      }else if(guess === secretNumber){
         document.querySelector('.message').textContent = 'Correct Number!'
+        document.querySelector('.number').style.borderColor = '#60b347'
+        //When guess is too high
      }else if(guess > secretNumber){
 
         if(score > 1){
             document.querySelector('.message').textContent = 'Too High!'
+            document.querySelector('.number').style.borderColor = 'red'
             score--
             document.querySelector('.score').textContent = score
         }else{
@@ -40,8 +46,10 @@ document.querySelector('.check').addEventListener
             document.querySelector('.score').textContent = 0
         }
         
+        //When guess is too low
      }else if(guess < secretNumber){
         document.querySelector('.message').textContent = 'Too Low!'
+        document.querySelector('.number').style.borderColor = 'red'
         score--
         document.querySelector('.score').textContent = score
         if(score > 1){
